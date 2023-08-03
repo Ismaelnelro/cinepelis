@@ -1,5 +1,5 @@
 import { ApiCinePelis } from "./axiosClient";
-import { MoviListProps, ResponseLatestMovie, ResponseMovieList } from "../interfaces/Movies";
+import { MoviListProps, ResponseMovieList } from "../interfaces/Movies";
 
 
 /*
@@ -12,7 +12,7 @@ Funcion que retorna lista de peliculas por:
 
 export interface ServiceResponse {
   msg: string
-  movies?: ResponseMovieList | ResponseLatestMovie | undefined
+  movies?: ResponseMovieList 
 }
 
 async function getMovieListService({ type, language, page }: MoviListProps): Promise<ServiceResponse> {
@@ -44,30 +44,30 @@ async function getMovieListService({ type, language, page }: MoviListProps): Pro
 
 
 /*Get the newest movie ID.*/
-async function getMovieLatestService(): Promise<ServiceResponse> {
-  try {
-    const resp = await ApiCinePelis.get(`/movie/latest`);
-    if (!resp.data || !resp.data.results || resp.data.results.length === 0) {
-      return {
-        msg: "No se encontraron resultados para la búsqueda",
-        movies: undefined
-      };
-    }
-    const latestMovie: ResponseLatestMovie = resp.data;
-    return {
-      msg: "Encontramos la siguiente lista de películas",
-      movies: latestMovie
-    };;
-  } catch (error: any) {
-    console.error("Error al obtener la lista de películas:", error.message);
-    throw new Error("Ocurrio un Error ");
-  }
-}
+// async function getMovieLatestService(): Promise<ServiceResponse> {
+//   try {
+//     const resp = await ApiCinePelis.get(`/movie/latest`);
+//     if (!resp.data || !resp.data.results || resp.data.results.length === 0) {
+//       return {
+//         msg: "No se encontraron resultados para la búsqueda",
+//         movies: undefined
+//       };
+//     }
+//     const latestMovie: ResponseLatestMovie = resp.data;
+//     return {
+//       msg: "Encontramos la siguiente lista de películas",
+//       movies: latestMovie
+//     };;
+//   } catch (error: any) {
+//     console.error("Error al obtener la lista de películas:", error.message);
+//     throw new Error("Ocurrio un Error ");
+//   }
+// }
 
 
 
 
 export {
   getMovieListService,
-  getMovieLatestService
+  // getMovieLatestService
 }
