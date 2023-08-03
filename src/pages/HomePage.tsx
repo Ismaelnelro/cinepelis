@@ -34,7 +34,7 @@ export const HomePage = () => {
   }
 
   return (
-    <PageLayout styles='p-6'>
+    <PageLayout styles='p-6 pl-14 h-[1200px]'>
       <Categorias />
       {now_playing && <Carrusel styles={styles} title='Now Playing' moviList={now_playing} />}
       {top_rated && <Carrusel styles={styles} title='Top Rated' moviList={top_rated} />}

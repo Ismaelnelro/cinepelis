@@ -6,7 +6,7 @@ function App() {
 
 
   //details by id
-  // const data = await pelisApi.get('https://api.themoviedb.org/3/movie/346698');
+  // const data = await pelisApi.get('https://api.themoviedb.org/3/movie/739405');
 
   //Obtener genero de peliculas y tv
   // const data = await pelisApi.get('https://api.themoviedb.org/3/genre/movie/list');

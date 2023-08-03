@@ -30,17 +30,15 @@ const Carrusel = ({ styles, title, moviList }: CarruselProps) => {
       </div>
 
       <div className={styles}>
-        <div id='container_carrusel' className='relative w-full h-full flex items-center overflow-hidden'>
-          <div id='carrusel' className=' w-full h-auto overflow-hidden  overflow-y-hidden flex gap-2 scroll-none'>
-            {MovieList && MovieList.map((movie, index) => (
-              <div key={index} className='inline-block min-w-fit rounded-md'>
+        <div id='container_carrusel' className='relative w-full h-full flex items-center'>
+          <div id='carrusel' className=' w-full h-auto  flex gap-2 scroll-none'>
+            {MovieList && MovieList.map((movie) => (
                 <Card movie={movie} />
-              </div>
             ))}
           </div>
 
           <Arrows icon={<IoIosArrowBack size={33} />} position='left-0' />
-          <Arrows icon={<IoIosArrowForward size={33} />} position='right-0' />
+          <Arrows icon={<IoIosArrowForward size={33} />} position='-right-10' />
         </div>
       </div>
     </div>
@@ -57,7 +55,7 @@ export default Carrusel
 
 export const Arrows = ({ icon, position }: arrowPorps) => {
   return (
-    <div className={`absolute ${position} top-0 w-auto h-full flex  items-center hover:bg-black text-white hover:opacity-30`} >
+    <div className={`absolute ${position} top-0 w-12 h-full flex  items-center hover:bg-black text-white hover:opacity-30 `}  >
       {icon}
     </div >
   )
