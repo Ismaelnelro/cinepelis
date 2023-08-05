@@ -8,6 +8,13 @@ function App() {
   //details by id
   // const data = await pelisApi.get('https://api.themoviedb.org/3/movie/739405');
 
+  // Buscar videos de pelliculas por ID
+  // https://api.themoviedb.org/3/movie/739405/videos
+
+// obtener personajes que participaron
+  // https://api.themoviedb.org/3/movie/739405/credits?language=en-US
+
+
   //Obtener genero de peliculas y tv
   // const data = await pelisApi.get('https://api.themoviedb.org/3/genre/movie/list');
   // { id: 28, name: 'Action' }
@@ -32,7 +39,7 @@ function App() {
 
 
   return (
-    <MainLayout styles='w-full h-full p-2 bg-[#141414]'>
+    <MainLayout styles='w-full h-full bg-[#141414]'>
       <HomePage/>
     </MainLayout>
   )

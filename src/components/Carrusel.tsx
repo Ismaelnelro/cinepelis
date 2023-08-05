@@ -7,15 +7,13 @@ import { Result } from '../interfaces/Movies';
 
 
 
-const Carrusel = ({ styles, title, moviList }: CarruselProps) => {
+const Carrusel = ({ styles, title, moviList,handdleModal }: CarruselProps) => {
 
   const [MovieList, setMovieList] = useState<Result[]>()
 
   useEffect(() => {
     if (moviList) {
       setMovieList(moviList)
-      console.log(moviList);
-      
     }
   }, [])
 
@@ -30,15 +28,15 @@ const Carrusel = ({ styles, title, moviList }: CarruselProps) => {
       </div>
 
       <div className={styles}>
-        <div id='container_carrusel' className='relative w-full h-full flex items-center'>
-          <div id='carrusel' className=' w-full h-auto  flex gap-2 scroll-none'>
+        <div id='container_carrusel' className='relative w-full h-full flex items-center '>
+          <div id='carrusel' className=' w-full h-auto  flex gap-2 overflow-hidden'>
             {MovieList && MovieList.map((movie) => (
-                <Card movie={movie} />
+                <Card key={movie.id} movie={movie} handdleModal={handdleModal} />
             ))}
           </div>
 
           <Arrows icon={<IoIosArrowBack size={33} />} position='left-0' />
-          <Arrows icon={<IoIosArrowForward size={33} />} position='-right-10' />
+          <Arrows icon={<IoIosArrowForward size={33} />} position='right-0' />
         </div>
       </div>
     </div>

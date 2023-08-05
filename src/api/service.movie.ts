@@ -1,5 +1,6 @@
 import { ApiCinePelis } from "./axiosClient";
 import { MoviListProps, ResponseMovieList } from "../interfaces/Movies";
+import { LogLevel } from "peerjs";
 
 
 /*
@@ -12,7 +13,7 @@ Funcion que retorna lista de peliculas por:
 
 export interface ServiceResponse {
   msg: string
-  movies?: ResponseMovieList 
+  movies?: ResponseMovieList
 }
 
 async function getMovieListService({ type, language, page }: MoviListProps): Promise<ServiceResponse> {
@@ -64,10 +65,36 @@ async function getMovieListService({ type, language, page }: MoviListProps): Pro
 //   }
 // }
 
+async function getMovieByID(id: string) {
+  console.log(id);
+  
+  try {
+    const resp = await ApiCinePelis.get(`https://api.themoviedb.org/3/movie/${id}`);
+    
+    if (!resp.data || !resp.data) {
+      return {
+        msg: "No se encontraron resultados para la búsqueda",
+        movies: undefined
+      };
+    }
 
+    const Movie: any = resp.data;
+    return {
+      msg: "Encontramos la siguiente lista de películas",
+      movies: resp.data
+    };
+
+  } catch (error: any) {
+    console.error("Error al obtener la lista de películas:", error.message);
+    throw new Error("Ocurrio un Error al obtener la lsita de peliculas");
+
+  }
+
+}
 
 
 export {
   getMovieListService,
+  getMovieByID
   // getMovieLatestService
 }

@@ -4,6 +4,8 @@ import { movieController } from '../api/controllers.movie'
 import { useEffect, useState } from 'react'
 import { Result } from '../interfaces/Movies'
 import Categorias from '../components/Categorias'
+import { Movie } from '../interfaces/movie'
+import DetallesPeliculas from '../components/DetallesPeliculas'
 
 
 const styles = 'w-full h-auto relative';
@@ -33,13 +35,40 @@ export const HomePage = () => {
     if (upcoming) setupcoming(upcoming.movies?.results)
   }
 
+
+  const [modalInfo, setmodalInfo] = useState<boolean>(false);
+  const [movieDetails, setmovieDetails] = useState<Movie>();
+
+  const handdleModal = async () => {
+    const id = localStorage.getItem("id_movie");
+    if (id !== null) {
+      const id_movie = JSON.parse(id);
+      const data = await movieController.getMovieByID({ id: id_movie });
+      if (data) {
+        setmovieDetails(data);
+      }
+      setmodalInfo(!modalInfo)
+    }
+    modalShow();
+  }
+
+
+  const modalShow = () => {
+    setmodalInfo(!modalInfo)
+
+  }
+
+
   return (
-    <PageLayout styles='p-6 pl-14 h-[1200px]'>
+    <PageLayout styles='h-[1200px] relative'>
       <Categorias />
-      {now_playing && <Carrusel styles={styles} title='Now Playing' moviList={now_playing} />}
-      {top_rated && <Carrusel styles={styles} title='Top Rated' moviList={top_rated} />}
-      {popular && <Carrusel styles={styles} title='Popular' moviList={popular} />}
-      {upcoming && <Carrusel styles={styles} title='Upcoming' moviList={upcoming} />}
+      {(modalInfo && movieDetails) && <DetallesPeliculas movie={movieDetails} modalShow={modalShow} />}
+      <div className='pl-14 '>
+        {now_playing && <Carrusel styles={styles} title='Now Playing' moviList={now_playing} handdleModal={handdleModal} />}
+        {top_rated && <Carrusel styles={styles} title='Top Rated' moviList={top_rated} handdleModal={handdleModal} />}
+        {popular && <Carrusel styles={styles} title='Popular' moviList={popular} handdleModal={handdleModal} />}
+        {upcoming && <Carrusel styles={styles} title='Upcoming' moviList={upcoming} handdleModal={handdleModal} />}
+      </div>
     </PageLayout>
   )
 }

@@ -1,5 +1,5 @@
 import { MoviListProps } from "../interfaces/Movies";
-import { ServiceResponse,  getMovieListService } from "./service.movie";
+import { ServiceResponse, getMovieByID, getMovieListService } from "./service.movie";
 
 
 
@@ -15,6 +15,12 @@ export const movieController = {
       throw new Error("Error al obtener la lista de películas");
     }
   },
+  getMovieByID: async ({ id }: { id: string }) => {
+    const resp = await getMovieByID(id);
+    console.log(resp);
+    
+    return resp.movies
+  }
   // getMovieLatest: async () => {
   //   return await getMovieLatestService();
   // }

@@ -1,9 +1,10 @@
 import { Result } from "./Movies"
 
 export interface CarruselProps {
-  styles: string,
-  title: string,
-  moviList: Result[]
+  styles: string;
+  title: string;
+  moviList: Result[];
+  handdleModal: ()=>void
 }
 
 
