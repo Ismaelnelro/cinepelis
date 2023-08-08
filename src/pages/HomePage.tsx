@@ -6,6 +6,7 @@ import { Result } from '../interfaces/Movies'
 import Categorias from '../components/Categorias'
 import { Movie } from '../interfaces/movie'
 import DetallesPeliculas from '../components/DetallesPeliculas'
+import Navbar from '../components/Navbar'
 
 
 const styles = 'w-full h-auto relative';
@@ -61,6 +62,7 @@ export const HomePage = () => {
 
   return (
     <PageLayout styles='h-[1200px] relative'>
+      <Navbar/>
       <Categorias />
       {(modalInfo && movieDetails) && <DetallesPeliculas movie={movieDetails} modalShow={modalShow} />}
       <div className='pl-14 '>
