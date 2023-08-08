@@ -132,3 +132,9 @@ Existen tres maneras de buscar una pelicula:
 2.  /discovery : Basado en filtros
 3.  /find: Busqueda por Id
 
+
+
+
+REFERENCIAS
+
+https://www.themoviedb.org/movie/739405-operation-fortune-ruse-de-guerre
