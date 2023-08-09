@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiConfig } from './apiconfig';
+// import { apiConfig } from './apiconfig';
 
 
 export const ApiCinePelis = axios.create({
