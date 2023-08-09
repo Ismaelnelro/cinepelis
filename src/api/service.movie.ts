@@ -16,7 +16,7 @@ export interface ServiceResponse {
 
 async function getMovieListService({ type, language, page }: MoviListProps): Promise<ServiceResponse> {
   try {
-    const resp = await ApiCinePelis.get(`/movie/${type}?page=${page}&language=${language}`);
+    const resp = await ApiCinePelis.get(`/movie/${type}?${language}&${page}`);
 
     if (!resp.data || !resp.data.results || resp.data.results.length === 0) {
       return {
