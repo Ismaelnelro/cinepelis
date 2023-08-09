@@ -16,10 +16,10 @@ export const HomePage = () => {
   const [now_playing, setnow_playing] = useState<Result[]>()
   const [popular, setpopular] = useState<Result[]>()
   const [top_rated, settop_rated] = useState<Result[]>()
-  const [upcoming, setupcoming] = useState<Result[]>()
+  // const [upcoming, setupcoming] = useState<Result[]>()
 
   useEffect(() => {
-    getMoviList();
+      getMoviList();
   }, [])
 
   async function getMoviList() {
@@ -32,8 +32,8 @@ export const HomePage = () => {
     const top_rated = await movieController.getMovieList({ type: "top_rated" });
     if (top_rated) settop_rated(top_rated.movies?.results)
 
-    const upcoming = await movieController.getMovieList({ type: "upcoming" });
-    if (upcoming) setupcoming(upcoming.movies?.results)
+    // const upcoming = await movieController.getMovieList({ type: "upcoming" });
+    // if (upcoming) setupcoming(upcoming.movies?.results)
   }
 
 
@@ -62,14 +62,14 @@ export const HomePage = () => {
 
   return (
     <PageLayout styles='h-[1200px] relative'>
-      <Navbar/>
+      <Navbar />
       <Categorias />
       {(modalInfo && movieDetails) && <DetallesPeliculas movie={movieDetails} modalShow={modalShow} />}
       <div className='pl-14 '>
         {now_playing && <Carrusel styles={styles} title='Now Playing' moviList={now_playing} handdleModal={handdleModal} />}
         {top_rated && <Carrusel styles={styles} title='Top Rated' moviList={top_rated} handdleModal={handdleModal} />}
         {popular && <Carrusel styles={styles} title='Popular' moviList={popular} handdleModal={handdleModal} />}
-        {upcoming && <Carrusel styles={styles} title='Upcoming' moviList={upcoming} handdleModal={handdleModal} />}
+        {/* {upcoming && <Carrusel styles={styles} title='Upcoming' moviList={upcoming} handdleModal={handdleModal} />} */}
       </div>
     </PageLayout>
   )

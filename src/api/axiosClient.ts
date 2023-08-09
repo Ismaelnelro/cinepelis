@@ -3,9 +3,10 @@ import { apiConfig } from './apiconfig';
 
 
 export const ApiCinePelis = axios.create({
-  baseURL: apiConfig.baseurlmovie,
+  baseURL: "https://api.themoviedb.org/3",
   headers: {
     Accept: "application/json",
-    Authorization: apiConfig.bearer
+    Authorization: import.meta.env.REACT_APP_BEARER
   }
 })
+
