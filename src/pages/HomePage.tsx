@@ -7,7 +7,6 @@ import Categorias from '../components/Categorias'
 import { Movie } from '../interfaces/movie'
 import DetallesPeliculas from '../components/DetallesPeliculas'
 import Navbar from '../components/Navbar'
-import { ApiCinePelis } from '../api/axiosClient'
 
 
 const styles = 'w-full h-auto relative';
