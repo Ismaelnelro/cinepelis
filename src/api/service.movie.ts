@@ -1,7 +1,5 @@
 import { ApiCinePelis } from "./axiosClient";
 import { MoviListProps, ResponseMovieList } from "../interfaces/Movies";
-import { LogLevel } from "peerjs";
-
 
 /*
 Funcion que retorna lista de peliculas por:
@@ -66,7 +64,6 @@ async function getMovieListService({ type, language, page }: MoviListProps): Pro
 // }
 
 async function getMovieByID(id: string) {
-  console.log(id);
   
   try {
     const resp = await ApiCinePelis.get(`https://api.themoviedb.org/3/movie/${id}`);
@@ -78,7 +75,6 @@ async function getMovieByID(id: string) {
       };
     }
 
-    const Movie: any = resp.data;
     return {
       msg: "Encontramos la siguiente lista de películas",
       movies: resp.data
