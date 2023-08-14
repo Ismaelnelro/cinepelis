@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../components/Footer';
 
 interface PageLayoutProps {
   children: React.ReactNode,
@@ -10,6 +11,7 @@ const PageLayout = ({ children, styles }: PageLayoutProps) => {
   return (
     <div className={styles}>
       {children}
+      <Footer/>
     </div>
   )
 }
