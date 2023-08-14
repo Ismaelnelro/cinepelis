@@ -37,7 +37,7 @@ const DetallesPeliculas = ({ movie, modalShow }: { movie: Movie, modalShow: () =
           <VscChromeClose size={28} className="react-icon-close" />
         </div>
 
-        <VideoYoutube videoId={'iuntihpAo8A'} />
+        <VideoYoutube videoId={'iuntihpAo8A'} height='450' />
 
         <div id="info_body" className='w-ful'>
 

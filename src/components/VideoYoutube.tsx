@@ -1,5 +1,5 @@
 
-const VideoYoutube = ({ videoId }: { videoId: string }) => {
+const VideoYoutube = ({ videoId, height }: { videoId: string; height: string }) => {
 
   const videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=0`;
 
@@ -9,7 +9,7 @@ const VideoYoutube = ({ videoId }: { videoId: string }) => {
         className=" rounded-t-xl"
         title="YouTube video player"
         width="100%"
-        height="450"
+        height={height}
         src={videoUrl}
         allowFullScreen
       />
