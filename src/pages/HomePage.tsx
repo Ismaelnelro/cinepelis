@@ -7,6 +7,7 @@ import Categorias from '../components/Categorias'
 import { Movie } from '../interfaces/movie'
 import DetallesPeliculas from '../components/DetallesPeliculas'
 import Navbar from '../components/Navbar'
+import { Hero } from '../components/Hero'
 
 
 const styles = 'w-full h-auto relative';
@@ -64,13 +65,14 @@ export const HomePage = () => {
 
 
   return (
-    <PageLayout styles='h-[1200px] relative'>
+    <PageLayout styles='h-[2000px] relative top-0'>
       <Navbar />
-      <Categorias />
+      <Categorias title='Series' />
+      <Hero movieId='iuntihpAo8A' />
 
       {(modalInfo && movieDetails) && <DetallesPeliculas movie={movieDetails} modalShow={modalShow} />}
 
-      <div className='pl-14 '>
+      <div className='pl-14 relative'>
         {now_playing && <Carrusel styles={styles} title='Now Playing' moviList={now_playing} handdleModal={handdleModal} />}
         {top_rated && <Carrusel styles={styles} title='Top Rated' moviList={top_rated} handdleModal={handdleModal} />}
         {popular && <Carrusel styles={styles} title='Popular' moviList={popular} handdleModal={handdleModal} />}

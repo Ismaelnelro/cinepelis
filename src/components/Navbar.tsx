@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className={`sticky top-0 left-0 z-[999] w-full h-16  md:py-0   lg:px-14  md:px-6  flex items-cente justify-between text-slate-300  ${isScrolled ? "bg-[#0c0c0c]" : "bg-gradient-to-b from-[#0c0c0c] to-transparent"}`}>
+    <div className={`sticky top-0 left-0 z-[999] w-full h-16  md:py-0   lg:px-14  md:px-6  flex items-cente justify-between text-slate-300  ${isScrolled ? "bg-gradient-to-b from-[#0c0c0c] to-transparent" : " bg-[#0c0c0c]"}`}>
       <div className='flex items-center'>
         <img src={logo} width={100} alt="Cine Peli logo" />
         <ul className='flex lg:pl-9 md:pl-3 lg:gap-4  md:gap-2 w-full h-fit'>

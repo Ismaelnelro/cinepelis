@@ -1,13 +1,24 @@
+import { useState } from 'react';
 import { BiListUl, BiSolidGridAlt } from 'react-icons/bi'
 
-const Categorias = () => {
+const Categorias = ({ title }: { title: string }) => {
+
+  const [isScrolled, setisScrolled] = useState(false);
+
+  window.onscroll = () => {
+    const value = window.pageYOffset !== 0 ? true : false;
+    setisScrolled(value);
+    return () => (window.onscroll = null);
+  };
+
+
   return (
-    <div className='w-full bg-[#141414]
-     flex items-center justify-between   sticky top-0 left-0 z-50'>
-      <div className='flex'>
-        <h1 className='text-3xl font-bold text-white'>Películas </h1>
-        <div className=" bg-black">
-          <select className="bg-black text-xs p-1 font-semibold text-white border-2 border-white">
+    <div className={`w-full ${isScrolled ? ' bg-[#0c0c0c] transition-all ease-out duration-500' : 'bg-transparent transition-all ease-out duration-500'}
+     flex items-center justify-between   fixed top-16 left-0 z-50  h-16  md:py-0   lg:px-14  md:px-6 `}>
+      <div className='flex justify-center items-center gap-10'>
+        <h1 className='text-4xl font-bold text-white capitalize'>{title} </h1>
+        <div className="h-auto">
+          <select className="w-28 h-8 bg-black text-xs p-1 font-semibold text-white border-2 border-white">
             <option value="opcion1">Género</option>
             <option value="opcion2">Opción 2</option>
             <option value="opcion3">Opción 3</option>
@@ -20,11 +31,12 @@ const Categorias = () => {
             <option value="opcion10">Opción 10</option>
           </select>
         </div>
+        
       </div>
 
       <div className='flex'>
-        <div><BiListUl        size={28} color="white" /></div>
-        <div><BiSolidGridAlt  size={28} color="white" /></div>
+        <div className='border-[1px] px-3 py-1'><BiListUl       size={17} color="white" /></div>
+        <div className='border-[1px] px-3 py-1'><BiSolidGridAlt size={17} color="white" /></div>
       </div>
 
     </div>
